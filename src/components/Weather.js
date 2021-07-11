@@ -1,7 +1,12 @@
+// a component that pulls together all the data from the api
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import City from './City.js'
+// my components
+import City from './City.js';
+import Loading from './Loading.js';
+import CurrentWeather from './CurrentWeather.js';
 
 const Weather = () => {
     const [apiData, setApiData] = useState({});
@@ -25,11 +30,15 @@ const Weather = () => {
         setGetState(event.target.value);
     }
     const submitHandler = () => {
+        setIsLoading(true);
         setState(getState);
+        setIsLoading(false);
+        console.log(apiData.weather.description);
     }
     
-    const kelvinToFarenheit = (k) => {
-        return (k * (9/5) - 459.67).toFixed(2);
+    
+    const kelvinToFarenheit = (k) => {  
+        return (k * (9/5) - 459.67).toFixed(0);
     }
     
     return (
@@ -46,12 +55,26 @@ const Weather = () => {
             <button onClick={submitHandler}>
                 Go
             </button>
-            {/* <h1>{apiData.name}</h1> */}
-            <City cityName={apiData.name} />
             <h2>
-                {isLoading ? "Loading..." : kelvinToFarenheit(apiData.main.temp)}&deg;F
+                {/* {isLoading ? "Loading..." : kelvinToFarenheit(apiData.main.temp)}&deg;F */}
                 {/* {kelvinToFarenheit(apiData.main.temp)}&deg;F */}
             </h2>
+            {isLoading ? 
+                <Loading /> :
+                <div>
+                    <City cityName={apiData.name} />
+                    <CurrentWeather 
+                        temperature={kelvinToFarenheit(apiData.main.temp)} 
+                        description={apiData.weather[0].description}
+                        maxTemp={kelvinToFarenheit(apiData.main.temp_max)}
+                        minTemp={kelvinToFarenheit(apiData.main.temp_min)}
+                        feelsLike={kelvinToFarenheit(apiData.main.feels_like)}
+                    />
+                </div>
+            }
+
+            {/* next maybe try something like isLoading ? <loadingcompent /> : <current weather componnet /> */}
+            {/* <CurrentWeather isLoading={isLoading} temperature={kelvinToFarenheit(apiData.main.temp)} /> */}
         </div>
     );
 }

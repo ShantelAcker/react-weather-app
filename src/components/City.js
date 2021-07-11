@@ -1,4 +1,4 @@
-
+// a component for displaying the name of a city
 
 const City = props => {
 
