@@ -8,12 +8,12 @@ const CurrentWeather = props => {
     const feelsLike = props.feelsLike;
 
         return (
-            <div>
+            <div className="current-weather">
                 <p>{temperature}&deg;F</p>
                 <p>{description}</p>
                 <p>Hi: {maxTemp}&deg;F</p>
                 <p>Low: {minTemp}&deg;F</p>
-                <p>feels like: {feelsLike}&deg;F</p>
+                <p><em>feels like</em>: {feelsLike}&deg;F</p>
             </div>
         )
     

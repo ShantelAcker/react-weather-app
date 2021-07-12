@@ -4,8 +4,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // my components
+import Header from './Header.js';
 import City from './City.js';
 import Loading from './Loading.js';
+import Icon from './Icon.js';
 import CurrentWeather from './CurrentWeather.js';
 
 const Weather = () => {
@@ -26,7 +28,7 @@ const Weather = () => {
             });
     }, [APILINK]);
 
-    const inputHandler = (event) => {
+    const inputHandler = event => {
         setGetState(event.target.value);
     }
     const submitHandler = () => {
@@ -34,6 +36,12 @@ const Weather = () => {
         setState(getState);
         setIsLoading(false);
         console.log(apiData.weather.description);
+    }
+    const handleKeyPress = event => {
+        // have the text field respond to pressing the enter key
+        if (event.keyCode === 13) {
+            submitHandler();
+        }
     }
     
     
@@ -43,6 +51,7 @@ const Weather = () => {
     
     return (
         <div>
+            <Header />
             <label for="zip-code">
                 Enter your zip code
             </label>
@@ -51,6 +60,7 @@ const Weather = () => {
                 id="zip-code"
                 onChange={inputHandler}
                 value={getState}
+                onKeyPress={handleKeyPress}
             />
             <button onClick={submitHandler}>
                 Go
@@ -63,6 +73,7 @@ const Weather = () => {
                 <Loading /> :
                 <div>
                     <City cityName={apiData.name} />
+                    <Icon iconCode={apiData.weather[0].icon}/>
                     <CurrentWeather 
                         temperature={kelvinToFarenheit(apiData.main.temp)} 
                         description={apiData.weather[0].description}
