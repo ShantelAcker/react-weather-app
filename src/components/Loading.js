@@ -1,9 +1,10 @@
 // a component that dicates the loading behavior
+import './loading.css';
 
 const Loading = () => {
     return (
-        <div>
-            <h2>Loading...</h2>
+        <div class="lds-ellipsis">
+            <div></div><div></div><div></div><div></div>
         </div>
     )
 }

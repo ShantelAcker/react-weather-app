@@ -26,6 +26,9 @@ const Weather = () => {
                 setApiData(res.data);
                 setIsLoading(false);
             });
+            // .catch(error => {
+            //     console.log(error);
+            // });
     }, [APILINK]);
 
     const inputHandler = event => {
@@ -39,7 +42,7 @@ const Weather = () => {
     }
     const handleKeyPress = event => {
         // have the text field respond to pressing the enter key
-        if (event.keyCode === 13) {
+        if (event.key === 'Enter') {
             submitHandler();
         }
     }
