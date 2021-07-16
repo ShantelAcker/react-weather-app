@@ -1,13 +1,60 @@
 /* imports */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
 /* basic universal styles */
 * {
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     text-align: center;
+    font-family: 'Yomogi', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 current-weather {
     margin-top: 30px;
 }
 
+/* header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 3px 3px #d4d4d4;
+    padding-bottom: .2em;
+}
+
+.header h1 {
+    margin-left: .5em;
+    font-weight: normal;
+}
+
+.social-media-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-media-links i {
+    margin: 0 .7em;
+}
+
+/* input styles */
+.input-container {
+    margin-top: 7em;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.zip-code-label {
+    font-size: 2em;
+}
+
+.zip-code-input {
+    font-size: 1.5em;
+}
+
+.submit-button {
+    font-size: 1.5em;
+}

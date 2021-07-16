@@ -55,23 +55,27 @@ const Weather = () => {
     return (
         <div>
             <Header />
-            <label for="zip-code">
-                Enter your zip code
-            </label>
-            <input
-                type="text"
-                id="zip-code"
-                onChange={inputHandler}
-                value={getState}
-                onKeyPress={handleKeyPress}
-            />
-            <button onClick={submitHandler}>
-                Go
-            </button>
-            <h2>
-                {/* {isLoading ? "Loading..." : kelvinToFarenheit(apiData.main.temp)}&deg;F */}
-                {/* {kelvinToFarenheit(apiData.main.temp)}&deg;F */}
-            </h2>
+
+            <div className="input-container">
+                <label for="zip-code" className="zip-code-label">
+                    Enter your zip code
+                </label>
+                <input
+                    type="text"
+                    id="zip-code"
+                    className="zip-code-input"
+                    onChange={inputHandler}
+                    value={getState}
+                    onKeyPress={handleKeyPress}
+                />
+                <button 
+                onClick={submitHandler}
+                className="submit-button"
+                >
+                    Go
+                </button>
+            </div>
+
             {isLoading ? 
                 <Loading /> :
                 <div>
@@ -87,8 +91,6 @@ const Weather = () => {
                 </div>
             }
 
-            {/* next maybe try something like isLoading ? <loadingcompent /> : <current weather componnet /> */}
-            {/* <CurrentWeather isLoading={isLoading} temperature={kelvinToFarenheit(apiData.main.temp)} /> */}
         </div>
     );
 }
