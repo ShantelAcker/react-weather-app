@@ -3,7 +3,7 @@
 const City = props => {
 
     return (
-        <div>
+        <div className="city-name">
             <h1>{props.cityName}</h1>
         </div>
     )
