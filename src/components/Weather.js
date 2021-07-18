@@ -16,7 +16,7 @@ const Weather = () => {
     const [state, setState] = useState("39466");
     const [isLoading, setIsLoading] = useState(true);
 
-    const APIKEY = "898f442c701508af007773e6e6727c48";
+    const APIKEY = process.env.REACT_APP_WEATHER_API_KEY;
     const APILINK = `http://api.openweathermap.org/data/2.5/weather?zip=${state},us&appid=${APIKEY}`;
     // const APILINK = "http://api.openweathermap.org/data/2.5/weather?zip=39466,us&appid=898f442c701508af007773e6e6727c48";
 

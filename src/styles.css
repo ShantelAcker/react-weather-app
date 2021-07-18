@@ -113,3 +113,6 @@ body {
 }
 
 /* responsive styles */
+@media only screen and (min-width: 600px) {
+    
+}
