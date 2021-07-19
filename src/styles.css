@@ -113,6 +113,10 @@ body {
 }
 
 /* responsive styles */
-@media only screen and (min-width: 600px) {
+
+/* mobile device styling */
+@media only screen and (min-width: 480px) {
     
 }
+
+/* breakpoints on bigger screens */
