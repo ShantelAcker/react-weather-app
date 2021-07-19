@@ -23,18 +23,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    /* box-shadow: 0px 3px 3px #96c3ee; */
     padding-bottom: .2em;
 }
 
 .header h1 {
     margin-left: .5em;
     font-weight: normal;
+    font-size: 1.6em;
 }
 
 .social-media-links {
     display: flex;
     justify-content: space-between;
+    font-size: 1.2em;
 }
 
 .social-media-links i {
@@ -104,7 +105,6 @@ body {
 /* city name styles */
 .city-name {
     margin-top: 1.3em;
-    font-size: 1.1em;
 }
 
 /* current weather styles */
@@ -113,10 +113,25 @@ body {
 }
 
 /* responsive styles */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .zip-code-input, .submit-button {
+        width: 50%;
+    }
 
-/* mobile device styling */
-@media only screen and (min-width: 480px) {
-    
 }
 
-/* breakpoints on bigger screens */
+
+@media only screen and (min-width: 1200px) {
+    .zip-code-input, .submit-button {
+        width: 40%;
+    }
+
+    .header {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header h1 {
+        margin-right: 25em;
+    }
+}
